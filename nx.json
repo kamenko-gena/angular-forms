@@ -49,7 +49,9 @@
       "e2eTestRunner": "none",
       "linter": "eslint",
       "style": "less",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "standalone": "true",
+      "changeDetections": "OnPush"
     }
   },
   "defaultProject": "angular-forms",
