@@ -13,6 +13,7 @@
         "outputPath": "dist/angular-forms",
         "index": "./src/index.html",
         "browser": "./src/main.ts",
+        "baseHref": "/angular-forms/",
         "polyfills": ["zone.js"],
         "tsConfig": "tsconfig.app.json",
         "inlineStyleLanguage": "less",
