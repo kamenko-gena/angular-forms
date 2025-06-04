@@ -1,0 +1,63 @@
+<form [formGroup]="clientAdressFormGroup" (submit)="submitForm()">
+    <div tuiGroup class="item-container">
+        <div>
+            <tui-select formControlName="country">
+                Страна
+                <tui-data-list-wrapper *tuiDataList [items]="countries">
+                </tui-data-list-wrapper>
+            </tui-select>
+            <tui-error
+                formControlName="country"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input formControlName="region"> Регион </tui-input>
+            <tui-error
+                formControlName="region"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+    </div>
+    <div tuiGroup class="item-container">
+        <div>
+            <tui-input formControlName="city"> Город </tui-input>
+            <tui-error
+                formControlName="city"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input formControlName="street"> Улица </tui-input>
+            <tui-error
+                formControlName="street"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input formControlName="house"> Дом </tui-input>
+            <tui-error
+                formControlName="house"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+    </div>
+    <div tuiGroup class="item-container">
+        <div>
+            <tui-input formControlName="apartment"> Квартира </tui-input>
+            <tui-error
+                formControlName="apartment"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input formControlName="postalCode"> Индекс </tui-input>
+            <tui-error
+                formControlName="postalCode"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+    </div>
+
+    <button size="m" tuiButton type="submit">Отправить</button>
+</form>
