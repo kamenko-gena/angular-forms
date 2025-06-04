@@ -1,0 +1,38 @@
+<form [formGroup]="bankFormGroup" (submit)="submitForm()">
+    <div class="item-container">
+        <tui-input formControlName="accountNumber"> Реквизиты </tui-input>
+        <tui-error
+            formControlName="accountNumber"
+            [error]="[] | tuiFieldError | async"
+        ></tui-error>
+    </div>
+    <div tuiGroup class="item-container">
+        <div>
+            <tui-input formControlName="bic"> БИК </tui-input>
+            <tui-error
+                formControlName="bic"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input formControlName="bankName">
+                Наименование банка
+            </tui-input>
+            <tui-error
+                formControlName="bankName"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+    </div>
+    <div class="item-container">
+        <tui-input formControlName="correspondentAccount">
+            Корреспондентский счет
+        </tui-input>
+        <tui-error
+            formControlName="correspondentAccount"
+            [error]="[] | tuiFieldError | async"
+        ></tui-error>
+    </div>
+
+    <button size="m" tuiButton type="submit">Отправить</button>
+</form>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import {
     FormControl,
@@ -50,13 +50,12 @@ type Country = CountriesName[number];
     ],
     templateUrl: './client-adress-form.component.html',
     styleUrl: './client-adress-form.component.less',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
             provide: TUI_VALIDATION_ERRORS,
             useValue: {
                 required: 'Обязательное заполнение!',
-                maxlength: ({ requiredLength }: { requiredLength: string }) =>
-                    `Максимальная длинна — ${requiredLength}`,
                 minlength: ({ requiredLength }: { requiredLength: string }) =>
                     `Минимальная длинна — ${requiredLength}`,
                 pattern: 'Неверный формат!',

@@ -3,6 +3,7 @@ import { TuiAccordionModule } from '@taiga-ui/kit';
 import { ClientInfoFormComponent } from './components/client-info-form/client-info-form.component';
 import { TuiRootModule } from '@taiga-ui/core';
 import { ClientAdressFormComponent } from './components/client-adress-form/client-adress-form.component';
+import { BankDetailsFormComponent } from './components/bank-details-form/bank-details-form.component';
 
 @Component({
     standalone: true,
@@ -11,6 +12,7 @@ import { ClientAdressFormComponent } from './components/client-adress-form/clien
         TuiAccordionModule,
         ClientInfoFormComponent,
         ClientAdressFormComponent,
+        BankDetailsFormComponent,
     ],
     selector: 'app-root',
     templateUrl: './app.component.html',
