@@ -83,7 +83,7 @@ export class ClientInfoFormComponent {
     readonly passportMask = {
         mask: [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/],
     };
-    readonly clientDataFormGroup = new FormGroup({
+    readonly clientInfoFormGroup = new FormGroup({
         firstName: new FormControl<string>('', {
             validators: [
                 Validators.required,
@@ -121,15 +121,7 @@ export class ClientInfoFormComponent {
             ],
         }),
     });
-
-    clientEdgeValidator(control: FormControl): { [s: string]: boolean } | null {
-        if (control.value === 'нет') {
-            return { clientEdge: true };
-        }
-        return null;
-    }
-
     submitForm(): void {
-        console.log(this.clientDataFormGroup.getRawValue());
+        console.log(this.clientInfoFormGroup.getRawValue());
     }
 }
