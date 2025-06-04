@@ -52,6 +52,9 @@
       "unitTestRunner": "jest",
       "standalone": "true",
       "changeDetections": "OnPush"
+    },
+    "@nx/angular:component": {
+      "style": "less"
     }
   },
   "defaultProject": "angular-forms",

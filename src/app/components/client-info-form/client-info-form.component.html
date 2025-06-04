@@ -1,0 +1,78 @@
+<form [formGroup]="clientDataFormGroup" (submit)="submitForm()">
+    <div class="item-container">
+        <tui-input formControlName="firstName"> Имя </tui-input>
+        <tui-error
+            formControlName="firstName"
+            [error]="[] | tuiFieldError | async"
+        ></tui-error>
+    </div>
+    <div class="item-container">
+        <tui-input formControlName="lastName"> Фамилия </tui-input>
+        <tui-error
+            formControlName="lastName"
+            [error]="[] | tuiFieldError | async"
+        ></tui-error>
+    </div>
+    <div class="item-container">
+        <tui-input formControlName="middleName"> Отчество </tui-input>
+        <tui-error
+            formControlName="middleName"
+            [error]="[] | tuiFieldError | async"
+        ></tui-error>
+    </div>
+
+    <div tuiGroup class="item-container">
+        <div class="date-block">
+            <tui-input-date [max]="maxEdgeDate" formControlName="birthDate">
+                Дата рождения
+            </tui-input-date>
+        </div>
+
+        <div class="gender-block">
+            <tui-select formControlName="gender">
+                Пол
+                <tui-data-list-wrapper *tuiDataList [items]="gendersType">
+                </tui-data-list-wrapper>
+            </tui-select>
+            <tui-error
+                formControlName="gender"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+    </div>
+    <div class="item-container">
+        <tui-input formControlName="email"> Email </tui-input>
+        <tui-error
+            formControlName="email"
+            [error]="[] | tuiFieldError | async"
+        ></tui-error>
+    </div>
+    <div tuiGroup class="item-container">
+        <div>
+            <tui-input-phone
+                countryCode="+7"
+                phoneMaskAfterCountryCode="(###) ###-##-##"
+                formControlName="phone"
+                >Телефон</tui-input-phone
+            >
+            <tui-error
+                formControlName="phone"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input
+                [maskito]="passportMask"
+                [tuiTextfieldFiller]="passportFiller"
+                formControlName="passport"
+                >Серия и номер паспорта</tui-input
+            >
+            <tui-error
+                formControlName="passport"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+    </div>
+
+    <button size="m" tuiButton type="submit">Отправить</button>
+</form>
