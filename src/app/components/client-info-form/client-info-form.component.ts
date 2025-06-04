@@ -6,17 +6,14 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import {
     TuiButtonModule,
     TuiErrorModule,
     TuiGroupModule,
-    TuiRootModule,
     TuiTextfieldControllerModule,
 } from '@taiga-ui/core';
 import {
     TUI_VALIDATION_ERRORS,
-    TuiAccordionModule,
     TuiDataListWrapperModule,
     TuiFieldErrorPipeModule,
     TuiInputDateModule,
@@ -37,8 +34,6 @@ type Gender = GendersType[number];
     selector: 'app-client-info-form',
     standalone: true,
     imports: [
-        RouterModule,
-        TuiRootModule,
         TuiSelectModule,
         TuiDataListWrapperModule,
         ReactiveFormsModule,
@@ -47,7 +42,6 @@ type Gender = GendersType[number];
         TuiInputModule,
         TuiFieldErrorPipeModule,
         TuiErrorModule,
-        TuiAccordionModule,
         TuiGroupModule,
         TuiInputPhoneModule,
         TuiTextfieldControllerModule,
