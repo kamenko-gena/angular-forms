@@ -1,0 +1,40 @@
+<form [formGroup]="transactionFormGroup" (submit)="submitForm()">
+    <div tuiGroup class="item-container">
+        <div>
+            <tui-select formControlName="transactionType">
+                Тип транзакции
+                <tui-data-list-wrapper *tuiDataList [items]="transactions">
+                </tui-data-list-wrapper>
+            </tui-select>
+            <tui-error
+                formControlName="transactionType"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input-number formControlName="amount">
+                Сумма
+            </tui-input-number>
+            <tui-error
+                formControlName="amount"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-select formControlName="currency">
+                Валюта
+                <tui-data-list-wrapper *tuiDataList [items]="currencies">
+                </tui-data-list-wrapper>
+            </tui-select>
+            <tui-error
+                formControlName="currency"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+    </div>
+    <div class="item-container">
+        <tui-textarea formControlName="comment">Комментарий</tui-textarea>
+    </div>
+
+    <button size="m" tuiButton type="submit">Отправить</button>
+</form>
