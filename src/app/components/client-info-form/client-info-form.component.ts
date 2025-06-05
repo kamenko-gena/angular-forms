@@ -25,6 +25,7 @@ import { TuiDay } from '@taiga-ui/cdk';
 import { MaskitoModule } from '@maskito/angular';
 import { ageValidator } from 'src/app/validators/age.validator';
 import { phoneNumberValidator } from 'src/app/validators/phone-number.validator';
+import { passportValidator } from 'src/app/validators/passport.validator';
 
 const CURRENT_DATE = new Date();
 const GENDERS = ['male', 'female'];
@@ -66,6 +67,7 @@ type Gender = GendersType[number];
                 pattern: 'Неверный формат',
                 invalidAge: 'Возраст не менее 18 лет',
                 invalidPhoneNumber: 'Неверный номер телефона',
+                invalidPassport: 'Неверные паспортные данные',
             },
         },
     ],
@@ -116,8 +118,8 @@ export class ClientInfoFormComponent {
         passport: new FormControl<string>('', {
             validators: [
                 Validators.required,
-                Validators.minLength(11),
                 Validators.pattern(/^[0-9\s]+$/),
+                passportValidator(),
             ],
         }),
     });
