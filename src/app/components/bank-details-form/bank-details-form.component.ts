@@ -39,9 +39,9 @@ import {
             useValue: {
                 required: 'Обязательное заполнение!',
                 maxlength: ({ requiredLength }: { requiredLength: string }) =>
-                    `Максимальная длинна — ${requiredLength}`,
+                    `Максимальная длина — ${requiredLength}`,
                 minlength: ({ requiredLength }: { requiredLength: string }) =>
-                    `Минимальная длинна — ${requiredLength}`,
+                    `Минимальная длина — ${requiredLength}`,
                 pattern: 'Неверный формат',
             },
         },
@@ -76,7 +76,7 @@ export class BankDetailsFormComponent {
     });
     submitForm(): void {
         if (this.bankFormGroup.invalid) return;
-        console.table(this.bankFormGroup.getRawValue());
+        console.log(this.bankFormGroup.getRawValue());
     }
     resetForm(): void {
         this.bankFormGroup.reset();

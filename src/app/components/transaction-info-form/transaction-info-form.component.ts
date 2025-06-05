@@ -55,7 +55,7 @@ type Currency = CurrencyType[number];
             useValue: {
                 required: 'Обязательное заполнение!',
                 maxlength: ({ requiredLength }: { requiredLength: string }) =>
-                    `Максимальная длинна — ${requiredLength}`,
+                    `Максимальная длина — ${requiredLength}`,
                 min: ({ min }: { min: string }) => `Минимальная сумма — ${min}`,
                 pattern: 'Неверный формат!',
             },
@@ -86,7 +86,7 @@ export class TransactionInfoFormComponent {
 
     submitForm(): void {
         if (this.transactionFormGroup.invalid) return;
-        console.table(this.transactionFormGroup.getRawValue());
+        console.log(this.transactionFormGroup.getRawValue());
     }
     resetForm(): void {
         this.transactionFormGroup.reset();

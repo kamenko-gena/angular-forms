@@ -60,9 +60,9 @@ type Gender = GendersType[number];
             useValue: {
                 required: 'Обязательное заполнение!',
                 maxlength: ({ requiredLength }: { requiredLength: string }) =>
-                    `Максимальная длинна — ${requiredLength}`,
+                    `Максимальная длина — ${requiredLength}`,
                 minlength: ({ requiredLength }: { requiredLength: string }) =>
-                    `Минимальная длинна — ${requiredLength}`,
+                    `Минимальная длина — ${requiredLength}`,
                 email: 'Некорректный адрес почты',
                 pattern: 'Неверный формат',
                 invalidAge: 'Возраст не менее 18 лет',
@@ -125,7 +125,7 @@ export class ClientInfoFormComponent {
     });
     submitForm(): void {
         if (this.clientInfoFormGroup.invalid) return;
-        console.table(this.clientInfoFormGroup.getRawValue());
+        console.log(this.clientInfoFormGroup.getRawValue());
     }
     resetForm(): void {
         this.clientInfoFormGroup.reset();

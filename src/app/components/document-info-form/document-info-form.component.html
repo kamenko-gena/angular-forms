@@ -40,6 +40,10 @@ let i = $index; track formGroup ) {
         ></button>
     </div>
 </form>
+<tui-error
+    [formGroup]="documentFormArray.controls[i]"
+    [error]="[] | tuiFieldError | async"
+></tui-error>
 } }
 <button
     appearance="icon"

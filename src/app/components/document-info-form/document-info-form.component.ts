@@ -21,8 +21,9 @@ import {
     TuiSelectModule,
 } from '@taiga-ui/kit';
 import { TuiDay } from '@taiga-ui/cdk';
+import { documentValidator } from 'src/app/validators/document.validator';
 
-const DOCUMENTS = ['passport', 'snils', 'inn'];
+const DOCUMENTS = ['Пасспорт', 'СНИЛС', 'ИНН'];
 type DocumentType = typeof DOCUMENTS;
 type Document = DocumentType[number];
 
@@ -49,6 +50,8 @@ type Document = DocumentType[number];
             provide: TUI_VALIDATION_ERRORS,
             useValue: {
                 required: 'Обязательное заполнение!',
+                invalidDocument:
+                    'Длина номера документа должна быть равна длине типа документа',
             },
         },
     ],
@@ -60,17 +63,20 @@ export class DocumentInfoFormComponent {
     );
 
     addDocument(): void {
-        const documentFormGroup = new FormGroup({
-            document: new FormControl<Document>('', {
-                validators: [Validators.required],
-            }),
-            documentNumber: new FormControl<string>('', {
-                validators: [Validators.required],
-            }),
-            issueDate: new FormControl<TuiDay>(TuiDay.currentLocal(), {
-                validators: [Validators.required],
-            }),
-        });
+        const documentFormGroup = new FormGroup(
+            {
+                document: new FormControl<Document>('', {
+                    validators: [Validators.required],
+                }),
+                documentNumber: new FormControl<string>('', {
+                    validators: [Validators.required],
+                }),
+                issueDate: new FormControl<TuiDay>(TuiDay.currentLocal(), {
+                    validators: [Validators.required],
+                }),
+            },
+            { validators: [documentValidator()] }
+        );
         this.documentFormArray.push(documentFormGroup);
     }
 
@@ -80,7 +86,7 @@ export class DocumentInfoFormComponent {
 
     submitForms(): void {
         if (this.documentFormArray.invalid) return;
-        console.table(this.documentFormArray.getRawValue());
+        console.log(this.documentFormArray.getRawValue());
     }
 
     resetForms(): void {

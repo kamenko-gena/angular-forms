@@ -57,7 +57,7 @@ type Country = CountriesName[number];
             useValue: {
                 required: 'Обязательное заполнение!',
                 minlength: ({ requiredLength }: { requiredLength: string }) =>
-                    `Минимальная длинна — ${requiredLength}`,
+                    `Минимальная длина — ${requiredLength}`,
                 pattern: 'Неверный формат!',
             },
         },
@@ -94,7 +94,7 @@ export class ClientAdressFormComponent {
     });
     submitForm(): void {
         if (this.clientAdressFormGroup.invalid) return;
-        console.table(this.clientAdressFormGroup.getRawValue());
+        console.log(this.clientAdressFormGroup.getRawValue());
     }
     resetForm(): void {
         this.clientAdressFormGroup.reset();
