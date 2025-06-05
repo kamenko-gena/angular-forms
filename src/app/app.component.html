@@ -1,34 +1,50 @@
 <tui-root>
-    <tui-accordion class="accordion">
+    <tui-accordion [closeOthers]="false" class="accordion">
         <tui-accordion-item class="accordion-item">
             Данные клиента
             <div tuiAccordionItemContent>
-                <app-client-info-form></app-client-info-form>
+                <app-client-info-form #clientInfoForm></app-client-info-form>
             </div>
         </tui-accordion-item>
         <tui-accordion-item class="accordion-item">
             Адрес регистрации
             <div tuiAccordionItemContent>
-                <app-client-adress-form></app-client-adress-form>
+                <app-client-adress-form
+                    #clientAdressForm
+                ></app-client-adress-form>
             </div>
         </tui-accordion-item>
         <tui-accordion-item class="accordion-item">
             Банковские реквизиты
             <div tuiAccordionItemContent>
-                <app-bank-details-form></app-bank-details-form>
+                <app-bank-details-form #bankDetailsForm></app-bank-details-form>
             </div>
         </tui-accordion-item>
         <tui-accordion-item class="accordion-item">
             Информация о транзакции
             <div tuiAccordionItemContent>
-                <app-transaction-info-form></app-transaction-info-form>
+                <app-transaction-info-form
+                    #transactionInfoForm
+                ></app-transaction-info-form>
             </div>
         </tui-accordion-item>
         <tui-accordion-item class="accordion-item">
             Дополнительные документы
             <div tuiAccordionItemContent>
-                <app-document-info-form></app-document-info-form>
+                <app-document-info-form
+                    #documentInfoForm
+                ></app-document-info-form>
             </div>
         </tui-accordion-item>
     </tui-accordion>
+    <footer>
+        <button
+            [disabled]="!validForms()"
+            tuiButton
+            type="button"
+            (click)="sendForms()"
+        >
+            Отправка
+        </button>
+    </footer>
 </tui-root>
