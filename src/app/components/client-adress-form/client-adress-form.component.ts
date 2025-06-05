@@ -13,7 +13,11 @@ import {
     TuiInputModule,
     TuiSelectModule,
 } from '@taiga-ui/kit';
-import { TuiErrorModule, TuiGroupModule } from '@taiga-ui/core';
+import {
+    TuiButtonModule,
+    TuiErrorModule,
+    TuiGroupModule,
+} from '@taiga-ui/core';
 
 const COUNTRIES = [
     'Беларусь',
@@ -38,6 +42,7 @@ type Country = CountriesName[number];
         TuiGroupModule,
         TuiSelectModule,
         TuiDataListWrapperModule,
+        TuiButtonModule,
         TuiInputModule,
         TuiFieldErrorPipeModule,
         TuiErrorModule,

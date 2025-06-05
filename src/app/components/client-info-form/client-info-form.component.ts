@@ -7,6 +7,7 @@ import {
     Validators,
 } from '@angular/forms';
 import {
+    TuiButtonModule,
     TuiErrorModule,
     TuiGroupModule,
     TuiTextfieldControllerModule,
@@ -36,6 +37,7 @@ type Gender = GendersType[number];
         TuiSelectModule,
         TuiDataListWrapperModule,
         ReactiveFormsModule,
+        TuiButtonModule,
         TuiInputDateModule,
         TuiInputModule,
         TuiFieldErrorPipeModule,
@@ -113,4 +115,7 @@ export class ClientInfoFormComponent {
             ],
         }),
     });
+    submitForm(): void {
+        console.log(this.clientInfoFormGroup.getRawValue());
+    }
 }

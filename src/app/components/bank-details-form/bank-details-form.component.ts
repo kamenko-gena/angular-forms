@@ -6,7 +6,11 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { TuiErrorModule, TuiGroupModule } from '@taiga-ui/core';
+import {
+    TuiButtonModule,
+    TuiErrorModule,
+    TuiGroupModule,
+} from '@taiga-ui/core';
 import {
     TUI_VALIDATION_ERRORS,
     TuiFieldErrorPipeModule,
@@ -20,6 +24,7 @@ import {
         CommonModule,
         ReactiveFormsModule,
         TuiGroupModule,
+        TuiButtonModule,
         TuiInputModule,
         TuiFieldErrorPipeModule,
         TuiErrorModule,

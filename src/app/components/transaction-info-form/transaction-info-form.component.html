@@ -1,4 +1,4 @@
-<form [formGroup]="transactionFormGroup">
+<form [formGroup]="transactionFormGroup" (submit)="submitForm()">
     <div tuiGroup class="item-container">
         <div>
             <tui-select formControlName="transactionType">
@@ -35,4 +35,6 @@
     <div class="item-container">
         <tui-textarea formControlName="comment">Комментарий</tui-textarea>
     </div>
+
+    <button size="m" tuiButton type="submit">Отправить</button>
 </form>
