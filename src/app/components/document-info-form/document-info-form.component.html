@@ -1,0 +1,46 @@
+@if(documentFormArray.length) { @for(formGroup of documentFormArray.controls;
+let i = $index; track formGroup ) {
+<form class="formGroup" [formGroup]="documentFormArray.controls[i]">
+    <div tuiGroup class="item-container">
+        <div>
+            <tui-select formControlName="document">
+                Тип документа
+                <tui-data-list-wrapper *tuiDataList [items]="documentsType">
+                </tui-data-list-wrapper>
+            </tui-select>
+            <tui-error
+                formControlName="document"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input-date formControlName="issueDate">
+                Дата выдачи
+            </tui-input-date>
+            <tui-error
+                formControlName="issueDate"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div>
+            <tui-input formControlName="documentNumber">
+                Номер документа
+            </tui-input>
+            <tui-error
+                formControlName="documentNumber"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <button
+            appearance="icon"
+            icon="tuiIconClose"
+            tuiIconButton
+            type="button"
+            (click)="deleteForm(i)"
+        ></button>
+    </div>
+</form>
+} }
+<button class="addButton" size="s" tuiButton (click)="addDocument()">
+    Добавить документ
+</button>

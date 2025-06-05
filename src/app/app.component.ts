@@ -5,6 +5,7 @@ import { TuiRootModule } from '@taiga-ui/core';
 import { ClientAdressFormComponent } from './components/client-adress-form/client-adress-form.component';
 import { BankDetailsFormComponent } from './components/bank-details-form/bank-details-form.component';
 import { TransactionInfoFormComponent } from './components/transaction-info-form/transaction-info-form.component';
+import { DocumentInfoFormComponent } from './components/document-info-form/document-info-form.component';
 
 @Component({
     standalone: true,
@@ -15,6 +16,7 @@ import { TransactionInfoFormComponent } from './components/transaction-info-form
         ClientAdressFormComponent,
         BankDetailsFormComponent,
         TransactionInfoFormComponent,
+        DocumentInfoFormComponent,
     ],
     selector: 'app-root',
     templateUrl: './app.component.html',
