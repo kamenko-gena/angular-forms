@@ -23,9 +23,13 @@
 
     <div tuiGroup class="item-container">
         <div class="date-block">
-            <tui-input-date [max]="maxEdgeDate" formControlName="birthDate">
+            <tui-input-date formControlName="birthDate">
                 Дата рождения
             </tui-input-date>
+            <tui-error
+                formControlName="birthDate"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
         </div>
 
         <div class="gender-block">

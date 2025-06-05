@@ -23,6 +23,8 @@ import {
 } from '@taiga-ui/kit';
 import { TuiDay } from '@taiga-ui/cdk';
 import { MaskitoModule } from '@maskito/angular';
+import { ageValidator } from 'src/app/validators/age.validator';
+import { phoneNumberValidator } from 'src/app/validators/phone-number.validator';
 
 const CURRENT_DATE = new Date();
 const GENDERS = ['male', 'female'];
@@ -62,12 +64,14 @@ type Gender = GendersType[number];
                     `Минимальная длинна — ${requiredLength}`,
                 email: 'Некорректный адрес почты',
                 pattern: 'Неверный формат',
+                invalidAge: 'Возраст не менее 18 лет',
+                invalidPhoneNumber: 'Неверный номер телефона',
             },
         },
     ],
 })
 export class ClientInfoFormComponent {
-    readonly maxEdgeDate = new TuiDay(
+    readonly minValidDate = new TuiDay(
         CURRENT_DATE.getFullYear() - 18,
         CURRENT_DATE.getMonth(),
         CURRENT_DATE.getDay()
@@ -98,15 +102,17 @@ export class ClientInfoFormComponent {
         gender: new FormControl<Gender>('', {
             validators: [Validators.required],
         }),
-        birthDate: new FormControl<TuiDay>(this.maxEdgeDate, {
-            validators: [Validators.required],
-        }),
+        birthDate: new FormControl<TuiDay>(this.minValidDate, [
+            Validators.required,
+            ageValidator(),
+        ]),
         email: new FormControl<string>('', {
             validators: [Validators.required, Validators.email],
         }),
-        phone: new FormControl<string>('', {
-            validators: [Validators.required],
-        }),
+        phone: new FormControl<string>('', [
+            Validators.required,
+            phoneNumberValidator(),
+        ]),
         passport: new FormControl<string>('', {
             validators: [
                 Validators.required,
