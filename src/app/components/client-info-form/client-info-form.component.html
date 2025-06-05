@@ -1,4 +1,4 @@
-<form [formGroup]="clientInfoFormGroup">
+<form [formGroup]="clientInfoFormGroup" (submit)="submitForm()">
     <div class="item-container">
         <tui-input formControlName="firstName"> Имя </tui-input>
         <tui-error
@@ -74,5 +74,17 @@
         </div>
     </div>
 
-    <button size="m" tuiButton type="submit">Отправить</button>
+    <div class="button-container">
+        <button
+            [disabled]="clientInfoFormGroup.invalid"
+            size="m"
+            tuiButton
+            type="submit"
+        >
+            Отправить
+        </button>
+        <button size="m" tuiButton type="button" (click)="resetForm()">
+            Очистить
+        </button>
+    </div>
 </form>

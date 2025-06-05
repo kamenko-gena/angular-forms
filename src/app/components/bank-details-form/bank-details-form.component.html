@@ -1,4 +1,4 @@
-<form [formGroup]="bankFormGroup">
+<form [formGroup]="bankFormGroup" (submit)="submitForm()">
     <div class="item-container">
         <tui-input formControlName="accountNumber"> Реквизиты </tui-input>
         <tui-error
@@ -33,6 +33,17 @@
             [error]="[] | tuiFieldError | async"
         ></tui-error>
     </div>
-
-    <button size="m" tuiButton type="submit">Отправить</button>
+    <div class="button-container">
+        <button
+            [disabled]="bankFormGroup.invalid"
+            size="m"
+            tuiButton
+            type="submit"
+        >
+            Отправить
+        </button>
+        <button size="m" tuiButton type="button" (click)="resetForm()">
+            Очистить
+        </button>
+    </div>
 </form>

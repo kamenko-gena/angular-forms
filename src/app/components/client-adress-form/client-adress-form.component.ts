@@ -93,6 +93,10 @@ export class ClientAdressFormComponent {
         }),
     });
     submitForm(): void {
-        console.log(this.clientAdressFormGroup.getRawValue());
+        if (this.clientAdressFormGroup.invalid) return;
+        console.table(this.clientAdressFormGroup.getRawValue());
+    }
+    resetForm(): void {
+        this.clientAdressFormGroup.reset();
     }
 }

@@ -116,6 +116,10 @@ export class ClientInfoFormComponent {
         }),
     });
     submitForm(): void {
-        console.log(this.clientInfoFormGroup.getRawValue());
+        if (this.clientInfoFormGroup.invalid) return;
+        console.table(this.clientInfoFormGroup.getRawValue());
+    }
+    resetForm(): void {
+        this.clientInfoFormGroup.reset();
     }
 }

@@ -75,6 +75,10 @@ export class BankDetailsFormComponent {
         }),
     });
     submitForm(): void {
-        console.log(this.bankFormGroup.getRawValue());
+        if (this.bankFormGroup.invalid) return;
+        console.table(this.bankFormGroup.getRawValue());
+    }
+    resetForm(): void {
+        this.bankFormGroup.reset();
     }
 }

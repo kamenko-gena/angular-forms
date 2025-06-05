@@ -36,11 +36,33 @@ let i = $index; track formGroup ) {
             icon="tuiIconClose"
             tuiIconButton
             type="button"
-            (click)="deleteForm(i)"
+            (click)="removeForm(i)"
         ></button>
     </div>
 </form>
 } }
-<button class="addButton" size="s" tuiButton (click)="addDocument()">
-    Добавить документ
-</button>
+<button
+    appearance="icon"
+    class="addButton"
+    icon="tuiIconPlusCircleLarge"
+    tuiIconButton
+    type="button"
+    (click)="addDocument()"
+></button>
+
+@if(documentFormArray.length) {
+<div class="button-container">
+    <button
+        [disabled]="documentFormArray.invalid"
+        (click)="submitForms()"
+        size="m"
+        tuiButton
+        type="button"
+    >
+        Отправить
+    </button>
+    <button size="m" tuiButton type="button" (click)="resetForms()">
+        Очистить
+    </button>
+</div>
+}

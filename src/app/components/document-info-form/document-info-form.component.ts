@@ -74,7 +74,16 @@ export class DocumentInfoFormComponent {
         this.documentFormArray.push(documentFormGroup);
     }
 
-    deleteForm(formIndex: number): void {
+    removeForm(formIndex: number): void {
         this.documentFormArray.removeAt(formIndex);
+    }
+
+    submitForms(): void {
+        if (this.documentFormArray.invalid) return;
+        console.table(this.documentFormArray.getRawValue());
+    }
+
+    resetForms(): void {
+        this.documentFormArray.reset();
     }
 }

@@ -83,7 +83,12 @@ export class TransactionInfoFormComponent {
             validators: [Validators.maxLength(200)],
         }),
     });
+
     submitForm(): void {
-        console.log(this.transactionFormGroup.getRawValue());
+        if (this.transactionFormGroup.invalid) return;
+        console.table(this.transactionFormGroup.getRawValue());
+    }
+    resetForm(): void {
+        this.transactionFormGroup.reset();
     }
 }
