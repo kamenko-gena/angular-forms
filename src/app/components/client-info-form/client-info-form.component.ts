@@ -28,7 +28,7 @@ import { phoneNumberValidator } from 'src/app/validators/phone-number.validator'
 import { passportValidator } from 'src/app/validators/passport.validator';
 
 const CURRENT_DATE = new Date();
-const GENDERS = ['male', 'female'];
+const GENDERS = ['Мужщина', 'Женщина'];
 const PASSPORT_FILLER = 'XXXX XXXXXX';
 type GendersType = typeof GENDERS;
 type Gender = GendersType[number];

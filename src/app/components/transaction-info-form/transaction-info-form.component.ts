@@ -21,7 +21,7 @@ import {
     TuiTextareaModule,
 } from '@taiga-ui/kit';
 
-const TRANSACTIONS = ['Transfer', 'Payment', 'Replenishment'];
+const TRANSACTIONS = ['Перевод', 'Оплата', 'Пополнение'];
 type TransactionsType = typeof TRANSACTIONS;
 type Transaction = TransactionsType[number];
 

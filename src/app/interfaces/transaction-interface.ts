@@ -1,5 +1,5 @@
 export interface TransactionInfoInterface {
-    transactionType: 'transfer' | 'payment' | 'replenishment';
+    transactionType: 'Перевод' | 'Оплата' | 'Пополнение';
     amount: number;
     currency: 'RUB' | 'USD' | 'EUR';
     comment?: string;

@@ -1,5 +1,5 @@
 export interface DocumentInterface {
-    documentType: 'passport' | 'snils' | 'inn';
+    documentType: 'Пасспорт' | 'СНИЛС' | 'ИНН';
     documentNumber: string;
     issueDate: Date;
 }
