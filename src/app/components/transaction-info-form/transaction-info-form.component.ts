@@ -6,11 +6,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import {
-    TuiButtonModule,
-    TuiErrorModule,
-    TuiGroupModule,
-} from '@taiga-ui/core';
+import { TuiErrorModule, TuiGroupModule } from '@taiga-ui/core';
 import {
     TUI_VALIDATION_ERRORS,
     TuiDataListWrapperModule,
@@ -38,7 +34,6 @@ type Currency = CurrencyType[number];
         TuiGroupModule,
         TuiSelectModule,
         TuiDataListWrapperModule,
-        TuiButtonModule,
         TuiInputModule,
         TuiInputNumberModule,
         TuiTextareaModule,
@@ -83,7 +78,4 @@ export class TransactionInfoFormComponent {
             validators: [Validators.maxLength(200)],
         }),
     });
-    submitForm(): void {
-        console.log(this.transactionFormGroup.getRawValue());
-    }
 }
