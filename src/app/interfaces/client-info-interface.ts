@@ -2,7 +2,7 @@ export interface ClientInfoInteface {
     firstName: string;
     lastName: string;
     middleName?: string;
-    gender: 'Мужчина' | 'Женщина';
+    gender: 'Мужской' | 'Женский';
     birthDate: Date;
     email: string;
     phone: string;
