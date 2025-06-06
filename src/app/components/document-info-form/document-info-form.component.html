@@ -1,5 +1,6 @@
 @if(documentFormArray.length) { @for(formGroup of documentFormArray.controls;
 let i = $index; track formGroup ) {
+
 <form class="formGroup" [formGroup]="documentFormArray.controls[i]">
     <div tuiGroup class="item-container">
         <div>
@@ -32,6 +33,7 @@ let i = $index; track formGroup ) {
             ></tui-error>
         </div>
         <button
+            class="removeIconButton"
             appearance="icon"
             icon="tuiIconClose"
             tuiIconButton
@@ -45,6 +47,7 @@ let i = $index; track formGroup ) {
     [error]="[] | tuiFieldError | async"
 ></tui-error>
 } }
+
 <button
     appearance="icon"
     class="addButton"

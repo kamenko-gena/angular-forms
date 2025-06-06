@@ -8,7 +8,7 @@ export function documentValidator(): ValidatorFn {
 
         const document = control.value.document;
         const documentNumber = control.value.documentNumber;
-        return documentNumber.length === document.length
+        return documentNumber.length !== document.length
             ? { invalidDocument: true }
             : null;
     };
