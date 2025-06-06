@@ -58,7 +58,9 @@ type Document = DocumentType[number];
 })
 export class DocumentInfoFormComponent {
     readonly documentsType = DOCUMENTS;
-    documentFormArray: FormArray<FormGroup> = new FormArray<FormGroup>([]);
+    readonly documentFormArray: FormArray<FormGroup> = new FormArray<FormGroup>(
+        []
+    );
 
     addDocument(): void {
         const documentFormGroup = new FormGroup(
@@ -88,6 +90,10 @@ export class DocumentInfoFormComponent {
     }
 
     resetForms(): void {
-        this.documentFormArray = new FormArray<FormGroup>([]);
+        this.documentFormArray.controls.forEach((form: FormGroup) => {
+            if (form instanceof FormGroup) {
+                form.reset();
+            }
+        });
     }
 }
